@@ -1,0 +1,12 @@
+litellm>=1.0.0
+faiss-cpu>=1.7.4
+langchain>=0.1.0
+PyMuPDF>=1.23.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+numpy>=1.24.0
+pandas>=2.0.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+streamlit>=1.28.0 
