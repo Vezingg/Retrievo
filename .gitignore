@@ -1,5 +1,6 @@
 # ignoring the environment folder
 .env
-
+.venv
+.vscode
 # Ignore the datasets
 data/*
