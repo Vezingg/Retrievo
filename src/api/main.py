@@ -17,7 +17,7 @@ app = FastAPI(title="RAG Pipeline API")
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:5173"],  # React dev server
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -90,6 +90,6 @@ async def check_answer(question: str, user_answer: str, correct_answer: str):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000) 
+    uvicorn.run(app, host="0.0.0.0", port=8000)  # Reverted port back to 8000
 
 # uvicorn src.api.main:app --host 0.0.0.0 --port 8000

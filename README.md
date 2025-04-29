@@ -49,6 +49,9 @@ MISTRAL_API_KEY=your_api_key_here
 
 3. Run the application:
 ```bash
+
+uvicorn src.api.main:app --host 0.0.0.0 --port 8000
+
 python main.py
 ```
 

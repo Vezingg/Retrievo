@@ -1,5 +1,6 @@
 # ignoring the environment folder
 .env
+.venv
 
 # Ignore the datasets
 data/*

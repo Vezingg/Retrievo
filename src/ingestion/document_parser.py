@@ -52,8 +52,10 @@ class DocumentParser:
             List of dictionaries containing text chunks and metadata
         """
         try:
-            response = requests.get(url)
+            response = requests.get(url, timeout=10)
             response.raise_for_status()
+            
+            logger.info(f"Fetched webpage content with status code: {response.status_code}")
             
             soup = BeautifulSoup(response.text, 'html.parser')
             
@@ -63,6 +65,9 @@ class DocumentParser:
             
             # Get text content
             text = soup.get_text(separator='\n', strip=True)
+            
+            # Log the first 500 characters of the text for debugging
+            logger.debug(f"Extracted text preview: {text[:500]}")
             
             # Split into paragraphs
             paragraphs = [p.strip() for p in text.split('\n') if p.strip()]
@@ -77,7 +82,11 @@ class DocumentParser:
                         "type": "web"
                     })
             
+            logger.info(f"Successfully parsed {len(chunks)} sections from the webpage.")
             return chunks
+        except requests.exceptions.RequestException as e:
+            logger.error(f"HTTP request error for {url}: {str(e)}")
+            return []
         except Exception as e:
             logger.error(f"Error parsing webpage {url}: {str(e)}")
             return []
@@ -95,4 +104,4 @@ class DocumentParser:
         """
         # Remove extra whitespace
         text = ' '.join(text.split())
-        return text.strip() 
+        return text.strip()
