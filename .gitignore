@@ -1,7 +1,7 @@
 # ignoring the environment folder
 .env
 .venv
+.vscode
 
 # Ignore the datasets
 data/*
-Miniconda3-latest-Linux-x86_64.sh
