@@ -1,7 +1,9 @@
 # ignoring the environment folder
 .env
 .venv
+venv
 .vscode
-
+.idea
+oryx-build-commands.txt
 # Ignore the datasets
 data/*
