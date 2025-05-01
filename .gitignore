@@ -3,6 +3,10 @@
 .venv
 venv
 .vscode
+*.pyc
+__pycache__/
+node_modules/
+
 .idea
 oryx-build-commands.txt
 # Ignore the datasets
